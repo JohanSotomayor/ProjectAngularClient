@@ -1,0 +1,31 @@
+img{
+    place-content: center;
+}
+.form1{
+    background-color: rgba(0, 0, 0, 0.064);
+    border: 1px solid #000000;
+    border-radius: 10px;
+    
+}
+.validGreen{
+    background-color: rgb(12, 225, 12);
+
+}
+.inputGreen{
+    border: 2px solid green;
+
+   
+}
+
+.invalidRed{
+    background-color: red;
+}
+.inputRed::placeholder{
+   color: red;
+}
+.bi{
+    cursor: pointer;
+}
+.bi:hover{
+ background-color:rgba(143, 47, 211, 0.2);
+}

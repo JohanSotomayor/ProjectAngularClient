@@ -1,0 +1,86 @@
+<div class="container ">
+        
+    <div class="row justify-content-center">
+    <div class="col-lg-2 mt-3">
+        <img src="./assets/img/pwc_Logo.png" width="130px" >
+    </div>
+
+        <div class="col-lg-6 mt-5" >
+            
+                <div class="card-body ">
+        <h1>Formulario Clientes </h1>
+            
+        </div>
+    </div>
+
+
+</div>
+<div class="row mt-4">
+    <div class="col-lg-6">
+        <div class="card form1">
+            <div class="card-body">
+                <h5> CONTACTO</h5>
+                
+                <form  [formGroup]="form" (ngSubmit)='agregar()'>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"  [class.validGreen]="this.form.get('nombre')?.valid" >
+                        <i class="bi bi-person-circle"  ></i>
+                    </span>
+                    <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre" [class.inputGreen]="this.form.get('nombre')?.valid" [class.inputRed]="this.form.get('nombre')?.invalid && this.form.get('nombre')?.touched">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"  [class.validGreen]="this.form.get('correo')?.valid"><i class="bi bi-envelope"></i></span>
+                    <input formControlName="correo" type="correo"    class="form-control" placeholder="@Correo" [class.inputGreen]="this.form.get('correo')?.valid" [class.inputRed]="this.form.get('correo')?.invalid && this.form.get('correo')?.touched">
+                  </div>
+               
+                  <div class="row">
+                    <div class="col-lg-6">
+            <div class="input-group mb-3 ">
+                <span class="input-group-text" id="basic-addon1"  [class.validGreen]="this.form.get('ciudad')?.valid"><i class="bi bi-geo-fill"></i></span>
+                <input formControlName="ciudad" type="text" class="form-control" placeholder="Ciudad"  [class.inputGreen]="this.form.get('ciudad')?.valid" [class.inputRed]="this.form.get('ciudad')?.invalid && this.form.get('ciudad')?.touched">
+            </div>  
+            </div>
+            <div class="col-lg-6">
+            <div class="input-group mb-3 ">
+                <span class="input-group-text" id="basic-addon1"  [class.validGreen]="this.form.get('celular')?.valid"><i class="bi bi-phone"></i></span>
+                <input formControlName="celular" type="password" class="form-control" placeholder="Celular"  maxlength="10" [class.inputGreen]="this.form.get('celular')?.valid" [class.inputRed]="this.form.get('celular')?.invalid && this.form.get('celular')?.touched">
+            </div>
+            </div> 
+            </div>
+                  <div class="input-group mb-3">
+                    <input formControlName="asunto" type="text" class="form-control" placeholder="Asunto" style="WIDTH: 228px; HEIGHT: 98px" size="250" [class.inputGreen]="this.form.get('asunto')?.valid" [class.inputRed]="this.form.get('asunto')?.invalid && this.form.get('asunto')?.touched">
+                  </div>
+           
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" [disabled]="this.form.invalid" ><i class="bi bi-cloud-arrow-down bi-lg-2" style="font-size: 1.3em" ></i>&nbsp;Enviar</button>
+            </div>
+            </form>
+            
+            </div>
+        </div>
+    </div>
+
+<div class="col-lg-6">
+    <div class="card form1">
+        <div class="card-body">
+            <h5> Datos Almacenados</h5>
+            <table class="table">
+                <tbody>
+                    <tr *ngFor='let cliente of infoClients; let i = index'>
+                        <td>{{cliente.nombre}}</td>
+                        <td>{{cliente.correo}}</td>
+                        <td>{{cliente.ciudad}}</td>
+                        <td>{{cliente.celular}}</td>
+                        <td><i class="bi bi-pencil-square text-info"  (click)="editar(cliente)"></i></td>
+                        <td>
+                            <i  class="bi bi-trash3-fill " (click)="borrar(cliente.id)"></i>  </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
